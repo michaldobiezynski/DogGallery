@@ -22,6 +22,15 @@ fetchData('https://dog.ceo/api/breeds/image/random')
 // ------------------------------------------
 //  HELPER FUNCTIONS
 // ------------------------------------------
+function checkStatus(response) {
+    if(response.ok) {
+        return Promise.resolve(response);
+    } else {
+        return Promise.reject(new Error(response.statusText));
+    }
+}
+
+
 function generateOptions(data) {
     const options = data.map(item => `
     <option value='${item}'>${item}</option>
