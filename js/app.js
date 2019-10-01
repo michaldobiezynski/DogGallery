@@ -5,6 +5,11 @@ const form = document.querySelector('form');
 // ------------------------------------------
 //  FETCH FUNCTIONS
 // ------------------------------------------
+function fetchData(url) {
+    return fetch(url)
+        .then(res => res.json())
+}
+
 fetch('https://dog.ceo/api/breeds/list')
     .then(response => response.json())
     .then(data => generateOptions(data.message))
@@ -21,7 +26,7 @@ function generateOptions(data) {
     const options = data.map(item => `
     <option value='${item}'>${item}</option>
     `
-    );
+    ).join('');
     select.innerHTML = options;
 }
 
