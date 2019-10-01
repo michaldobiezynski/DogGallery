@@ -53,7 +53,8 @@ function generateImage(data) {
 // ------------------------------------------
 //  EVENT LISTENERS
 // ------------------------------------------
-
+select.addEventListener('change', fetchBreedImage);
+card.addEventListener('click', fetchBreedImage);
 
 
 // ------------------------------------------
