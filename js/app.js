@@ -13,6 +13,13 @@ function fetchData(url) {
             console.log('Looks like there was a problem', error))
 }
 
+Promise.all([
+    fetchData('https://dog.ceo/api/breeds/list'),
+    fetchData('https://dog.ceo/api/breeds/image/random')
+
+])
+    .then(data =>console.log(data))
+
 fetchData('https://dog.ceo/api/breeds/list')
     .then(data => generateOptions(data.message))
 
